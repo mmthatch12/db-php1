@@ -47,9 +47,8 @@ require_once("include/db.php");
             <td><?php echo $Department; ?></td>
             <td><?php echo $Salary; ?></td>
             <td><?php echo $HomeAddress; ?></td>
-            <td><?php echo $HomeAddress; ?></td>
-            <td><a href="Update.php"id=<?php $Id;?>>Update</a></td>
-            <td><a href="Delete.php"id=<?php $Id;?>>Delete</a></td>
+            <td><a href="update.php?id=<?php echo $Id; ?>">Update</a></td>
+            <td><a href="delete.php?id=<?php echo $Id; ?>">Delete</a></td>
         </tr>
         <?php } ?>
         </table>
