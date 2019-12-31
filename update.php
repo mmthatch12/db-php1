@@ -2,29 +2,21 @@
 require_once("include/db.php");
 $SearchQueryParameter = $_GET["id"];
 if(isset($_POST["Submit"])){
-    if(!empty($_POST["EName"])&&!empty($_POST["SSN"])){
+    
         $EName = $_POST["EName"];
         $SSN = $_POST["SSN"];
         $Dept = $_POST["Dept"];
         $Salary = $_POST["Salary"];
         $HomeAddress = $_POST["HomeAddress"];
         global $ConnectingDB;
-        $sql = "INSERT INTO emp_record(ename,ssn,dept,salary,homeaddress)
-        VALUES(:enamE,:ssN,:depT,:salarY,:homeaddresS)";
-        $stmt = $ConnectingDB->prepare($sql);
-        $stmt->bindValue('enamE', $EName);
-        $stmt->bindValue('ssN', $SSN);
-        $stmt->bindValue('depT', $Dept);
-        $stmt->bindValue('salarY', $Salary);
-        $stmt->bindValue('homeaddresS', $HomeAddress);
-        $Execute = $stmt->execute();
+        $sql = "UPDATE emp_record SET ename='$EName', ssn='$SSN', dept='$Dept', salary='$Salary', homeaddress='$HomeAddress' WHERE id='$SearchQueryParameter'";
+        $Execute = $ConnectingDB->query($sql);
+
         if($Execute){
-            echo '<span class="success">Record has been added successfully</span>';
+            echo '<script>window.open("dbview.php?id=Record Updated Successfully", "_self")</script>';
         }
-    } else {
-        echo '<span class="nameSsnErr">Name and SSN are required</span>';
-    }
-}
+    } 
+
 
 
 ?>
@@ -53,7 +45,7 @@ if(isset($_POST["Submit"])){
         ?>
         <div class="formdiv">
 
-            <form action="insert_data_into_db.php" method="post">
+            <form action="update.php?id=<?php echo $SearchQueryParameter?>" method="post">
                 <fieldset>
                     <span class="fieldinfo">Employee Name:</span>
                     <br>

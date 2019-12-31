@@ -12,6 +12,7 @@ require_once("include/db.php");
         <link rel="stylesheet" href="include/style.css">
     <head>
     <body>
+        <h2 class="success"><?php echo @$_GET["id"]; ?></h2>
         <table width="1000" border="5" align="center">
             <caption>View From Database</caption>
             <tr>
