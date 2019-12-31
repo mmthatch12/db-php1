@@ -1,3 +1,23 @@
+<?php
+require_once("include/db.php");
+if(isset($_POST["Submit"])){
+    if(!empty($_POST["EName"])&&!empty($_POST["SSN"])){
+        $EName = $_POST["EName"];
+        $SSN = $_POST["SSN"];
+        $Dept = $_POST["Dept"];
+        $Salary = $_POST["Salary"];
+        $HomeAddress = $_POST["HomeAddress"];
+        global $ConnectingDB;
+        $sql = "INSERT INTO emp_record(ename,ssn,dept,salary,homeaddress)"
+    } else {
+        echo '<span class="nameSsnErr">Name and SSN are required</span>';
+    }
+}
+
+
+?>
+
+
 <!DOCTYPE>
 
 <html>
