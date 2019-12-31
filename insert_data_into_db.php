@@ -8,7 +8,18 @@ if(isset($_POST["Submit"])){
         $Salary = $_POST["Salary"];
         $HomeAddress = $_POST["HomeAddress"];
         global $ConnectingDB;
-        $sql = "INSERT INTO emp_record(ename,ssn,dept,salary,homeaddress)"
+        $sql = "INSERT INTO emp_record(ename,ssn,dept,salary,homeaddress)
+        VALUES(:enamE,:ssN,:depT,:salarY,:homeaddresS)";
+        $stmt = $ConnectingDB->prepare($sql);
+        $stmt->bindValue('enamE', $EName);
+        $stmt->bindValue('ssN', $SSN);
+        $stmt->bindValue('depT', $Dept);
+        $stmt->bindValue('salarY', $Salary);
+        $stmt->bindValue('homeaddresS', $HomeAddress);
+        $Execute = $stmt->execute();
+        if($Execute){
+            echo '<span class="success">Record has been added successfully</span>';
+        }
     } else {
         echo '<span class="nameSsnErr">Name and SSN are required</span>';
     }

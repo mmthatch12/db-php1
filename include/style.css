@@ -36,3 +36,9 @@ input[type="Submit"]{
     float: left;
 
 }
+.success{
+    color: green;
+    font-family: Bitter, Georgia, "Times New Roman", Times, serif;
+    font-size: 1.4em;
+    font-weight: bold;
+}
