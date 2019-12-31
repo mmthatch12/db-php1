@@ -61,19 +61,19 @@ if(isset($_POST["Submit"])){
                     <br>
                     <span class="fieldinfo">Social Security Number:</span>
                     <br>
-                    <input type="text" name="SSN" value="">
+                    <input type="text" name="SSN" value="<?php echo $SSN; ?>">
                     <br>
                     <span class="fieldinfo">Department:</span>
                     <br>
-                    <input type="text" name="Dept" value="">
+                    <input type="text" name="Dept" value="<?php echo $Department; ?>">
                     <br>
                     <span class="fieldinfo">Salary:</span>
                     <br>
-                    <input type="text" name="Salary" value="">
+                    <input type="text" name="Salary" value="<?php echo $Salary; ?>">
                     <br>
                     <span class="fieldinfo">Home Address:</span>
                     <br>
-                    <textarea name="HomeAddress" rows="8" cols="80"></textarea>
+                    <textarea name="HomeAddress" rows="8" cols="80"><?php echo $HomeAddress?></textarea>
                     <br>
                     <input type="submit" name="Submit" value="Submit your record">
                 </fieldset>
